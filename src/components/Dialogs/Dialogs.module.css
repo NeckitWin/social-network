@@ -1,0 +1,9 @@
+.content {
+    grid-area: c;
+    background-color: #242526;
+}
+
+.banner {
+    width: 100%;
+    height: 300px;
+}

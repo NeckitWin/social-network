@@ -1,0 +1,17 @@
+.header {
+    grid-area: h;
+    background-color: #242526;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+/*Основные цвета сайта:
+#27BFE6
+#2747E6
+#2783E6
+#27E6CF
+#4427E6
+*/

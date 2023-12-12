@@ -1,0 +1,24 @@
+.menu {
+    grid-area: n;
+    background-color: #18191a;
+}
+
+.item{
+    color: white;
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 20px;
+}
+
+.item.active{
+    color: gold;
+}
+
+
+/*Основные цвета сайта:
+#27BFE6
+#2747E6
+#2783E6
+#27E6CF
+#4427E6
+*/
