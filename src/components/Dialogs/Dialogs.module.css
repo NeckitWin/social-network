@@ -1,9 +1,17 @@
-.content {
-    grid-area: c;
-    background-color: #242526;
+.dialogs{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
 }
-
-.banner {
-    width: 100%;
-    height: 300px;
+.dialogItems .active{
+    color: gold;
+}
+.dialogItems{
+    padding: 10px;
+}
+.messages{
+    padding: 10px;
+}
+.textarea{
+    width: 90%;
+    height: 40px;
 }

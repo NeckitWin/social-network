@@ -1,22 +1,48 @@
 import React from "react";
-import s from './Profile.module.css'
-import MyPosts from "./MyPosts/MyPosts";
+import s from './Dialogs.module.css'
+import Message from "./Message/Message";
+import DialogItem from "./DialogItem/DialogItem";
 
-const Profile = () => {
+const Dialogs = (props) => {
+    let dialogsElements = props.messages.dialogsData
+        .map( d => <DialogItem name={d.name} id={d.id} />   );
+
+    let messagesElements = props.messages.messagesData
+        .map( m => <Message mess={m.message} />)
+
+    let newMessageElement = React.createRef();
+
+    let addMessage = () => {
+        props.addMessage();
+        props.updateMessage('');
+    }
+
+    let onMessageChange = () => {
+        let message = newMessageElement.current.value;
+        props.updateMessage(message);
+    }
+
+
     return (
-        <main className={s.content}>
-            <img className={s.banner}
-                 src="https://static.thairath.co.th/media/dFQROr7oWzulq5FZYANuEZlRY89MbBZGbB03TL7pGDPeb11CkdQJhamTfLVYfEGR0DP.jpg"
-                 alt=""/>
-            <div>
-                <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_hWgIeheNx1UyrJ0StbFyAV2i7J735jcdvkfvNrUX0Dv-1d2S8KlaDLv7PrzvB5-8Gx4&usqp=CAU"
-                    alt=""/>
-                ava+description
+        <div className={s.dialogs}>
+            <div className={s.dialogItems}>
+                <div>
+                    <textarea></textarea>
+                    <button>Add User</button>
+                    <button>Delete User</button>
+                </div>
+                { dialogsElements }
             </div>
-            <MyPosts/>
-        </main>
+             <div className={s.messages}>
+                 { messagesElements }
+                 <div>
+                     <textarea onChange={onMessageChange} className={s.textarea} ref={newMessageElement} value={ props.newMessageText }></textarea>
+                     <button onClick={addMessage}>Send message</button>
+                     <button>Clear dialogs</button>
+                 </div>
+             </div>
+        </div>
     );
 }
 
-export default Profile;
+export default Dialogs;
